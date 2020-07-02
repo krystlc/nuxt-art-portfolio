@@ -1,10 +1,12 @@
 <template>
   <div>
-    <section class="container hero">
-      <h3 class="title">Simple is the best design</h3>
-      <p class="subtitle">We are Professional web developer and designer in this market.</p>
+    <section class="hero">
+      <div class="container">
+        <h3 class="title">Simple is the best design</h3>
+        <p class="subtitle mb-4">We are Professional web developer and designer in this market.</p>
+        <nuxt-link to="/about" class="btn">About</nuxt-link>
+      </div>
     </section>
-    <hr />
     <section class="container gallery">
       <ul class="tabs space-x-5">
         <li>Cat 1</li>
@@ -12,7 +14,7 @@
         <li>Cat 3</li>
         <li>Cat 4</li>
       </ul>
-      <div class="grid grid-cols-3 gap-4">
+      <div class="gallery__items">
         <div v-for="n in 9" :key="n" class="gallery__item" />
       </div>
       <div class="gallery__action">
@@ -31,17 +33,19 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.hero {
-  @apply flex flex-col justify-center items-center h-64;
-}
-.hero .title {
-  @apply mb-3;
-}
 .gallery {
   @apply py-20;
 }
 .tabs {
   @apply flex justify-center mb-10;
+}
+.gallery__items {
+  @apply grid grid-cols-1 gap-4;
+}
+@screen sm {
+  .gallery__items {
+    @apply grid-cols-3;
+  }
 }
 .gallery__item {
   @apply h-64 bg-gray-100;

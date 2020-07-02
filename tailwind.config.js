@@ -12,6 +12,16 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: '2rem',
+    },
+    extend: {
+      colors: {
+        'dark-lava': '#463F3A',
+        'middle-grey': '#8a817c',
+        'pale-silver': '#BCB8B1',
+        alabaster: '#F4F3EE',
+        melon: '#E0AFA0',
+      },
     },
   },
   variants: {},
