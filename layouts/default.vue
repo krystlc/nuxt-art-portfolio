@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="pt-20">
     <header>
-      <div class="container header-container">
+      <div class="container">
         <span class="logo">
           <nuxt-link exact to="/">Loren Valle</nuxt-link>
         </span>
-        <nav>
+        <nav class="font-semibold">
           <ul class="space-x-5">
             <li v-for="item in items" :key="item.route">
               <nuxt-link :to="{ name: item.route }" v-text="item.label" />
@@ -15,8 +15,26 @@
       </div>
     </header>
     <main>
-      <nuxt class="pt-16" />
+      <nuxt />
     </main>
+    <footer>
+      <div class="container">
+        <span class="logo">
+          <nuxt-link exact to="/">Loren Valle</nuxt-link>
+        </span>
+        <div class="footer__socials space-x-1">
+          <a v-for="n in 4" :key="n" href="http://" class="icon">i</a>
+        </div>
+        <nav>
+          <ul class="space-x-5">
+            <li v-for="item in items" :key="item.route">
+              <nuxt-link :to="{ name: item.route }" v-text="item.label" />
+            </li>
+          </ul>
+        </nav>
+        <div class="footer__legal">All copyright © reserved by Loren Valle 2020.</div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -37,7 +55,7 @@ export default Vue.extend({
   data() {
     return {
       items: [
-        new MenuItem('Home', 'home'),
+        new MenuItem('Home', 'index'),
         new MenuItem('Gallery', 'gallery'),
         new MenuItem('Contact', 'contact'),
       ],
@@ -48,15 +66,27 @@ export default Vue.extend({
 
 <style scoped>
 header {
-  @apply fixed inset-x-0 h-16 top-0 border-b;
+  @apply fixed inset-x-0 h-20 top-0 border-b bg-white;
 }
-.header-container {
-  @apply min-h-0 h-full justify-between;
+header .container {
+  @apply flex items-center justify-between h-full;
 }
 .logo {
-  @apply font-bold text-lg;
+  @apply font-bold text-xl font-display;
 }
 nav ul {
-  @apply flex;
+  @apply flex tracking-wide uppercase text-xs;
+}
+footer {
+  @apply py-32 text-center;
+}
+footer nav ul {
+  @apply justify-center my-8;
+}
+.footer__socials {
+  @apply flex justify-center my-8;
+}
+.footer__socials .icon {
+  @apply rounded-full h-10 w-10 flex items-center justify-center bg-gray-500 text-white;
 }
 </style>

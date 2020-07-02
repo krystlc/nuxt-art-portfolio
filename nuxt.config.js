@@ -24,7 +24,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@700&display=swap',
+          'https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap',
       },
     ],
   },
