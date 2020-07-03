@@ -9,7 +9,7 @@
           </li>
         </ul>
       </nav>
-      <button class="sm:hidden">
+      <button class="text-xl sm:hidden">
         <i class="fas fa-bars" />
       </button>
     </div>

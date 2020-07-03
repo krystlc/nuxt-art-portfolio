@@ -10,7 +10,22 @@ a {
   @apply text-dark-lava transition duration-100;
 }
 a:hover {
-  @apply text-middle-grey
+  @apply text-middle-grey;
+}
+a:focus {
+  @apply outline-none;
+}
+
+label {
+  @apply block uppercase tracking-wide text-xs font-bold mb-2;
+}
+input,
+textarea {
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-transparent rounded-sm leading-tight;
+}
+input:focus,
+textarea:focus {
+  @apply outline-none bg-white border-gray-400;
 }
 
 .title {
@@ -21,10 +36,13 @@ a:hover {
 }
 
 .btn {
-  @apply bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-xs;
+  @apply bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-sm;
 }
 .btn:hover {
   @apply bg-white border-dark-lava text-dark-lava;
+}
+.btn:focus {
+  @apply outline-none shadow-outline;
 }
 .btn-secondary {
   @apply bg-middle-grey text-white;
@@ -34,7 +52,7 @@ a:hover {
 }
 
 .hero {
-  @apply bg-alabaster py-10 border-b;
+  @apply bg-alabaster py-10;
 }
 .hero .container {
   @apply flex flex-col items-center text-center;

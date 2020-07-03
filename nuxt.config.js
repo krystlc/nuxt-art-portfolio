@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -41,7 +44,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: ['~/plugins/contentful'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -62,5 +65,9 @@ export default {
    */
   build: {
     transpile: [({ isLegacy }) => isLegacy && 'ky'],
+  },
+  env: {
+    CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
+    CONTENTFUL_ACCESSTOKEN: process.env.CONTENTFUL_ACCESSTOKEN,
   },
 }

@@ -9,10 +9,13 @@
     </section>
     <section class="container gallery">
       <ul class="tabs space-x-5">
-        <li>Cat 1</li>
-        <li>Cat 2</li>
-        <li>Cat 3</li>
-        <li>Cat 4</li>
+        <li
+          v-for="cat in categories"
+          :key="cat"
+          class="tabs__item"
+          :class="{ active: tab === cat }"
+          @click.prevent="tab = cat"
+        >{{ cat }}</li>
       </ul>
       <div class="gallery__items">
         <div v-for="n in 9" :key="n" class="gallery__item" />
@@ -29,6 +32,12 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'PageIndex',
+  data() {
+    return {
+      tab: 'Acrylic',
+      categories: ['Acrylic', 'Pencil', 'Oil'],
+    }
+  },
   head: {
     title: 'Home',
   },
@@ -39,11 +48,17 @@ export default Vue.extend({
 .gallery {
   @apply py-20;
 }
+.gallery__items {
+  @apply grid grid-cols-1 gap-4;
+}
 .tabs {
   @apply flex justify-center mb-10;
 }
-.gallery__items {
-  @apply grid grid-cols-1 gap-4;
+.tabs__item {
+  @apply cursor-pointer;
+}
+.tabs__item.active {
+  @apply border-b-2 border-dark-lava;
 }
 @screen sm {
   .gallery__items {

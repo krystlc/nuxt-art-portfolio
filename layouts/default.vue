@@ -43,6 +43,6 @@ export default Vue.extend({
 
 <style scoped>
 .app-header {
-  @apply fixed inset-x-0 h-20 top-0 border-b bg-white;
+  @apply fixed inset-x-0 h-20 top-0 bg-white;
 }
 </style>

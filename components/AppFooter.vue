@@ -20,7 +20,7 @@
         </li>
       </ul>
     </nav>
-    <div class="footer__legal">All copyright © reserved by Loren Valle 2020.</div>
+    <div class="footer__legal">©2020 Loren Valle. All rights reserved.</div>
   </footer>
 </template>
 
@@ -54,9 +54,9 @@ export default Vue.extend({
   computed: {
     socials(): Social[] {
       return [
-        new Social('Facebook', 'facebook.com', 'fa-facebook-f'),
-        new Social('Instagram', 'facebook.com', 'fa-instagram'),
-        new Social('Etsy', 'facebook.com', 'fa-etsy'),
+        new Social('Facebook', 'https://facebook.com', 'fa-facebook-f'),
+        new Social('Instagram', 'https://instagram.com', 'fa-instagram'),
+        new Social('Etsy', 'https://etsy.com', 'fa-etsy'),
       ]
     },
   },

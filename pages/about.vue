@@ -54,15 +54,6 @@ export default Vue.extend({
 .segment {
   @apply grid grid-cols-1;
 }
-@screen sm {
-  .segment,
-  .profile {
-    @apply grid-cols-2;
-  }
-  .segment-inverse .segment__cover {
-    @apply order-last;
-  }
-}
 .profile {
   @apply col-gap-8 my-8;
 }
@@ -77,5 +68,17 @@ export default Vue.extend({
 }
 .segment__copy {
   @apply p-10;
+}
+@screen sm {
+  .segment,
+  .profile {
+    @apply grid-cols-2;
+  }
+  .segment-inverse .segment__cover {
+    @apply order-last;
+  }
+  .segment__copy {
+    @apply p-20;
+  }
 }
 </style>
