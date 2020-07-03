@@ -24,15 +24,24 @@ a:hover {
   @apply bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-xs;
 }
 .btn:hover {
-  @apply bg-transparent border-dark-lava text-dark-lava
+  @apply bg-white border-dark-lava text-dark-lava;
+}
+.btn-secondary {
+  @apply bg-middle-grey text-white;
+}
+.btn-secondary:hover {
+  @apply border-middle-grey text-middle-grey;
 }
 
 .hero {
   @apply bg-alabaster py-10 border-b;
 }
 .hero .container {
-  @apply flex flex-col justify-center items-center;
+  @apply flex flex-col items-center text-center;
 }
 .hero .title {
+  @apply mb-3;
+}
+.hero .subtitle {
   @apply mb-3;
 }

@@ -9,6 +9,9 @@
           </li>
         </ul>
       </nav>
+      <button class="sm:hidden">
+        <i class="fas fa-bars" />
+      </button>
     </div>
   </header>
 </template>
@@ -35,6 +38,14 @@ export default Vue.extend({
 <style scoped>
 .container {
   @apply flex items-center justify-between h-full;
+}
+nav {
+  @apply hidden;
+}
+@screen sm {
+  nav {
+    @apply block;
+  }
 }
 nav ul {
   @apply flex tracking-wide uppercase text-xs;

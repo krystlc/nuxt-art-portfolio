@@ -9,6 +9,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'PageGalleryIndex',
+  head: {
+    title: 'Gallery',
+  },
 })
 </script>
 

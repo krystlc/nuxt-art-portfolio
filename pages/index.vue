@@ -3,7 +3,7 @@
     <section class="hero">
       <div class="container">
         <h3 class="title">Simple is the best design</h3>
-        <p class="subtitle mb-4">We are Professional web developer and designer in this market.</p>
+        <p class="subtitle">We are Professional web developer and designer in this market.</p>
         <nuxt-link to="/about" class="btn">About</nuxt-link>
       </div>
     </section>
@@ -18,7 +18,7 @@
         <div v-for="n in 9" :key="n" class="gallery__item" />
       </div>
       <div class="gallery__action">
-        <nuxt-link :to="{ name: 'gallery' }" class="btn">View more</nuxt-link>
+        <nuxt-link to="/gallery" class="btn">View more</nuxt-link>
       </div>
     </section>
   </div>
@@ -29,6 +29,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'PageIndex',
+  head: {
+    title: 'Home',
+  },
 })
 </script>
 

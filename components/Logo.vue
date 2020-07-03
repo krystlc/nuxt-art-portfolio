@@ -6,6 +6,6 @@
 
 <style scoped>
 .logo {
-  @apply font-bold text-xl font-display;
+  @apply font-bold text-xl font-display whitespace-no-wrap;
 }
 </style>
