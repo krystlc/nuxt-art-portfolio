@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
@@ -22,8 +22,11 @@
     }
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^14.1.1",
     "@nuxt/typescript-runtime": "^0.4.10",
+    "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "dayjs": "^1.8.29",
     "nuxt": "^2.13.0"
   },
   "devDependencies": {
@@ -31,7 +34,6 @@
     "@nuxtjs/eslint-config": "^3.0.0",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^2.0.0",
     "@vue/test-utils": "^1.0.3",

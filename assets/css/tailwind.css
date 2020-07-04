@@ -39,7 +39,7 @@ textarea:focus {
   @apply bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-sm;
 }
 .btn:hover {
-  @apply bg-white border-dark-lava text-dark-lava;
+  @apply bg-transparent border-dark-lava text-dark-lava;
 }
 .btn:focus {
   @apply outline-none shadow-outline;
