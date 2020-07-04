@@ -7,44 +7,42 @@
     </section>
     <section class="profile container">
       <aside class="profile__picture">
-        <img src="https://themepure.net/tf/akel-prv/akel/img/bg/me.jpg" />
+        <img :src="`${cover}?fm=webp&h=960`" />
       </aside>
       <div class="profile__bio">
-        <h4 class="headline">Ut vel nostrum mollitia vero, quia, ab asperiores tenetur</h4>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
-          odio voluptatum ipsum, et laudantium dolorem necessitatibus nam ipsa
-          voluptatibus non quaerat ut vel nostrum mollitia vero, quia, ab
-          asperiores tenetur!
-        </p>
+        <h4 v-if="description" class="headline">{{ description }}</h4>
+        <div v-html="body" />
         <button class="btn mt-4">Hire me</button>
         <nuxt-link to="/gallery" class="btn btn-secondary">View Gallery</nuxt-link>
       </div>
     </section>
-    <section v-for="n in 3" :key="n" class="segment" :class="{ 'segment-inverse': n % 2 }">
+    <section
+      v-for="(block, i) in blocks"
+      :key="`block-${i}`"
+      class="segment"
+      :class="{ 'segment-inverse': i % 2 }"
+    >
       <div class="segment__cover">
-        <img src="https://themepure.net/tf/akel-prv/akel/img/bg/me.jpg" />
+        <img :src="`${block.cover}?fm=webp&h=960&w=960&fit=fill`" />
       </div>
       <div class="segment__copy">
-        <h4 class="headline">Ab asperiores tenetur</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim facilis,
-          eos molestias dolorem atque eaque animi, inventore, autem voluptate
-          sapiente officia dolor velit. Modi nesciunt itaque praesentium
-          quisquam et assumenda.
-        </p>
+        <h4 class="headline">{{ block.headline }}</h4>
+        <div v-html="block.body" />
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import EntryMixin from '~/mixins/entryMixin'
 
-export default Vue.extend({
+export default EntryMixin.extend({
   name: 'PageAbout',
-  head: {
-    title: 'About',
+  asyncData() {
+    const entry = require('~/static/data/page.json').find(
+      (e: any) => e.fields.slug === 'about'
+    )
+    return { entry }
   },
 })
 </script>
@@ -79,6 +77,9 @@ export default Vue.extend({
   }
   .segment__copy {
     @apply p-20;
+  }
+  .profile__picture {
+    @apply mb-0;
   }
 }
 </style>

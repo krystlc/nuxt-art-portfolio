@@ -2,8 +2,8 @@
   <div>
     <section class="hero">
       <div class="container">
-        <h3 class="title">Simple is the best design</h3>
-        <p class="subtitle">We are Professional web developer and designer in this market.</p>
+        <h3 class="title">{{ description }}</h3>
+        <div class="subtitle" v-html="body" />
         <nuxt-link to="/about" class="btn">About</nuxt-link>
       </div>
     </section>
@@ -28,9 +28,9 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import EntryMixin from '~/mixins/entryMixin'
 
-export default Vue.extend({
+export default EntryMixin.extend({
   name: 'PageIndex',
   data() {
     return {
@@ -38,8 +38,11 @@ export default Vue.extend({
       categories: ['Acrylic', 'Pencil', 'Oil'],
     }
   },
-  head: {
-    title: 'Home',
+  asyncData() {
+    const entry = require('~/static/data/page.json').find(
+      (e: any) => e.fields.slug === 'home'
+    )
+    return { entry }
   },
 })
 </script>
