@@ -1,6 +1,6 @@
 <template>
   <span class="logo">
-    <nuxt-link exact to="/">Loren Valle</nuxt-link>
+    <nuxt-link exact to="/" title="Loren Valle">Loren Valle</nuxt-link>
   </span>
 </template>
 

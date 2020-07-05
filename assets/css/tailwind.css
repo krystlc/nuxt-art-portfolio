@@ -16,7 +16,8 @@ a {
 a:hover {
   @apply text-middle-grey;
 }
-a:focus {
+a:focus,
+button:focus {
   @apply outline-none;
 }
 

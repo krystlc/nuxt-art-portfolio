@@ -62,11 +62,8 @@ export default pageMixin.extend({
 .gallery__items {
   @apply grid grid-cols-1 gap-4;
 }
-.gallery__item {
-  @apply h-64 bg-gray-100;
-}
 .gallery__action {
-  @apply text-center mt-24;
+  @apply text-center mt-8;
 }
 @screen sm {
   .gallery__items {

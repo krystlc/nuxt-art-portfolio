@@ -2,15 +2,15 @@
   <header>
     <div class="container">
       <Logo />
-      <nav class="font-semibold">
-        <ul class="space-x-5">
-          <li v-for="item in items" :key="item.route">
+      <nav :class="{ open }">
+        <ul class="sm:space-x-5">
+          <li v-for="item in items" :key="item.route" @click.prevent="open = false">
             <nuxt-link :to="{ name: item.route }" exact v-text="item.label" />
           </li>
         </ul>
       </nav>
-      <button class="text-xl sm:hidden">
-        <i class="fas fa-bars" />
+      <button class="menu-btn" @click.prevent="open = !open">
+        <i class="fas" :class="menuIcon" />
       </button>
     </div>
   </header>
@@ -32,6 +32,16 @@ export default Vue.extend({
       required: true,
     },
   },
+  data() {
+    return {
+      open: false,
+    }
+  },
+  computed: {
+    menuIcon(): string {
+      return (this as any).open ? 'fa-times' : 'fa-bars'
+    },
+  },
 })
 </script>
 
@@ -40,14 +50,29 @@ export default Vue.extend({
   @apply flex items-center justify-between h-full;
 }
 nav {
-  @apply hidden;
+  @apply hidden font-semibold;
+}
+nav.open {
+  @apply block fixed top-0 bottom-0 left-0 right-0 bg-melon flex items-center;
+}
+nav ul {
+  @apply tracking-wide uppercase font-display text-4xl p-8;
+}
+.menu-btn {
+  @apply text-xl z-30;
 }
 @screen sm {
   nav {
     @apply block;
   }
-}
-nav ul {
-  @apply flex tracking-wide uppercase text-xs;
+  nav.open {
+    @apply relative bg-transparent block;
+  }
+  nav ul {
+    @apply flex font-body text-xs p-0;
+  }
+  .menu-btn {
+    @apply hidden;
+  }
 }
 </style>
