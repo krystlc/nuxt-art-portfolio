@@ -16,7 +16,14 @@
           class="gallery__item"
           :to="item.slug"
         >
-          <img :src="`${item.image}?fm=webp&h=640&w=640&fit=fill`" :title="item.title" />
+          <picture>
+            <source :srcset="`${item.image}?h=640&w=640&fit=thumb&fm=webp&q=80`" />
+            <img
+              :src="`${item.image}?h=640&w=640&fit=thumb&fm=jpg&q=90`"
+              :alt="item.title"
+              :title="item.title"
+            />
+          </picture>
           <h4 v-text="item.title" />
         </nuxt-link>
       </div>
