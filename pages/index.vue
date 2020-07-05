@@ -16,12 +16,14 @@
           :to="item.slug"
         >
           <img :src="`${item.image}?fm=webp&h=640&w=640&fit=fill`" :title="item.title" />
+          <h4 v-text="item.title" />
         </nuxt-link>
       </div>
       <div class="gallery__action">
         <nuxt-link to="/portfolio" class="btn btn-secondary">View Portfolio</nuxt-link>
       </div>
     </section>
+    <hr />
   </div>
 </template>
 
@@ -56,18 +58,18 @@ export default pageMixin.extend({
 </script>
 
 <style scoped>
-.gallery {
-  @apply pt-8;
-}
-.gallery__items {
-  @apply grid grid-cols-1 gap-4;
+.hero .container {
+  @apply items-start text-left;
 }
 .gallery__action {
-  @apply text-center mt-8;
+  @apply text-center pt-8;
 }
 @screen sm {
-  .gallery__items {
-    @apply grid-cols-3;
+  .hero {
+    @apply py-32;
+  }
+  .gallery__action {
+    @apply pt-16;
   }
 }
 </style>

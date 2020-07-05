@@ -53,7 +53,7 @@ export default pageMixin.extend({
   @apply grid grid-cols-1;
 }
 .profile {
-  @apply col-gap-8 my-8;
+  @apply col-gap-24 py-8;
 }
 .profile__picture {
   @apply mb-4;
@@ -65,18 +65,21 @@ export default pageMixin.extend({
   @apply bg-melon;
 }
 .segment__copy {
-  @apply p-10;
+  @apply p-8;
 }
 @screen sm {
   .segment,
   .profile {
     @apply grid-cols-2;
   }
+  .profile {
+    @apply py-16;
+  }
   .segment-inverse .segment__cover {
     @apply order-last;
   }
   .segment__copy {
-    @apply p-20;
+    @apply p-16;
   }
   .profile__picture {
     @apply mb-0;

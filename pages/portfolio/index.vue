@@ -5,22 +5,20 @@
         <h3 class="title">Portfolio</h3>
       </div>
     </section>
-    <section class="container pt-8">
-      <div class="collections">
-        <div
+    <section class="container gallery">
+      <div class="gallery__items">
+        <nuxt-link
           v-for="(collection, i) in filteredCollection"
           :key="`collection-${i}`"
-          class="collection"
+          :to="`/portfolio/${collection.slug}`"
+          class="gallery__item"
         >
-          <nuxt-link :to="`/portfolio/${collection.slug}`">
-            <img
-              :src="`${collection.cover}?fm=webp&h=640&w=640&fit=fill`"
-              :title="collection.title"
-            />
-          </nuxt-link>
-        </div>
+          <img :src="`${collection.cover}?fm=webp&h=640&w=640&fit=fill`" :title="collection.title" />
+          <h4 v-text="collection.title" />
+        </nuxt-link>
       </div>
     </section>
+    <hr />
   </div>
 </template>
 
@@ -51,17 +49,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style scoped>
-.collections {
-  @apply grid grid-cols-1 gap-4;
-}
-@screen sm {
-  .featured__details {
-    @apply flex flex-row-reverse;
-  }
-  .collections {
-    @apply grid-cols-3;
-  }
-}
-</style>

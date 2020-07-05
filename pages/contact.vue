@@ -29,6 +29,7 @@
         </button>
       </form>
     </section>
+    <hr />
   </div>
 </template>
 
@@ -45,6 +46,11 @@ export default Vue.extend({
 
 <style scoped>
 form {
-  @apply w-full max-w-lg mx-auto mt-8;
+  @apply w-full max-w-lg mx-auto py-8;
+}
+@screen sm {
+  form {
+    @apply py-16;
+  }
 }
 </style>

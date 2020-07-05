@@ -51,6 +51,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    'nuxt-purgecss',
     '~/modules/getContent',
   ],
   /*
@@ -94,5 +95,9 @@ export default {
     },
     disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...)
     // optional you can add more configuration like [AdWords](https://developers.google.com/adwords-remarketing-tag/#configuring_the_global_site_tag_for_multiple_accounts)
+  },
+  purgeCSS: {
+    mode: 'postcss',
+    enabled: process.env.NODE_ENV === 'production',
   },
 }

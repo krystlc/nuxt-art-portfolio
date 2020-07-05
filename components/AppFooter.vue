@@ -54,9 +54,26 @@ export default Vue.extend({
   computed: {
     socials(): Social[] {
       return [
-        new Social('Facebook', 'https://facebook.com', 'fa-facebook-f'),
-        new Social('Instagram', 'https://instagram.com', 'fa-instagram'),
-        new Social('Etsy', 'https://etsy.com', 'fa-etsy'),
+        new Social(
+          'Facebook',
+          'https://www.facebook.com/lorenvalleart',
+          'fa-facebook-f'
+        ),
+        new Social(
+          'Instagram',
+          'https://www.instagram.com/lorenvalleart/',
+          'fa-instagram'
+        ),
+        new Social(
+          'YouTube',
+          'https://www.youtube.com/channel/UCafeShiZ-qkA1izJzcp6ntg',
+          'fa-youtube'
+        ),
+        new Social(
+          'Etsy',
+          'https://www.etsy.com/shop/lorenvalleart',
+          'fa-etsy'
+        ),
       ]
     },
   },

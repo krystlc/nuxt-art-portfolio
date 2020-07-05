@@ -22,7 +22,7 @@ button:focus {
 }
 a:disabled,
 button:disabled {
-  @apply opacity-50;
+  @apply opacity-25;
 }
 
 label {
@@ -47,7 +47,7 @@ textarea:focus {
 .btn {
   @apply whitespace-no-wrap bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-sm;
 }
-.btn:hover {
+.btn:hover:not(:disabled) {
   @apply bg-transparent border-dark-lava text-dark-lava;
 }
 .btn:focus {
@@ -56,12 +56,12 @@ textarea:focus {
 .btn-secondary {
   @apply bg-middle-grey text-white;
 }
-.btn-secondary:hover {
+.btn-secondary:hover:not(:disabled) {
   @apply border-middle-grey text-middle-grey;
 }
 
 .hero {
-  @apply bg-alabaster py-10;
+  @apply bg-alabaster py-8;
 }
 .hero .container {
   @apply flex flex-col items-center text-center;
@@ -73,8 +73,45 @@ textarea:focus {
   @apply my-3;
 }
 
+.gallery {
+  @apply py-8;
+}
+.gallery__items {
+  @apply grid grid-cols-1 gap-4;
+}
+.gallery__item h4 {
+  @apply pt-2 underline text-center;
+}
+
 @screen sm {
+
   .hero .subtitle {
     @apply w-1/2
   }
+
+  .gallery {
+    @apply py-32;
+  }
+  .gallery__items {
+    @apply grid-cols-3;
+  }
+  .gallery__item {
+    @apply relative;
+  }
+  .gallery__item h4 {
+    @apply transition duration-100 transform -translate-y-2 opacity-0 absolute left-0 right-0;
+  }
+  .gallery__item:hover h4 {
+    @apply opacity-100 translate-y-0;
+  }
+
+}
+
+.page-enter-active,
+.page-leave-active {
+  @apply transition-opacity duration-100;
+}
+.page-enter,
+.page-leave-active {
+  @apply opacity-0;
 }
