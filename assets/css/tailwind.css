@@ -77,10 +77,10 @@ textarea:focus {
   @apply absolute bottom-0 border-b-2 border-middle-grey opacity-50;
 }
 .hero .subtitle:is(:last-child) {
-  @apply mt-3;
+  @apply mt-4;
 }
 .hero .subtitle:not(:last-child) {
-  @apply my-3;
+  @apply my-4;
 }
 
 .gallery {
