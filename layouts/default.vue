@@ -33,7 +33,7 @@ export default Vue.extend({
       return [
         new MenuItem('Home', 'index'),
         new MenuItem('About', 'about'),
-        new MenuItem('Gallery', 'gallery'),
+        new MenuItem('Portfolio', 'portfolio'),
         new MenuItem('Contact', 'contact'),
       ]
     },

@@ -40,7 +40,7 @@ textarea:focus {
 }
 
 .btn {
-  @apply bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-sm;
+  @apply whitespace-no-wrap bg-dark-lava text-alabaster tracking-wider font-bold uppercase py-2 px-5 border border-transparent rounded-sm text-sm;
 }
 .btn:hover {
   @apply bg-transparent border-dark-lava text-dark-lava;
@@ -61,9 +61,15 @@ textarea:focus {
 .hero .container {
   @apply flex flex-col items-center text-center;
 }
-.hero .title {
-  @apply mb-3;
+.hero .subtitle:is(:last-child) {
+  @apply mt-3;
 }
-.hero .subtitle {
-  @apply mb-3;
+.hero .subtitle:not(:last-child) {
+  @apply my-3;
+}
+
+@screen sm {
+  .hero .subtitle {
+    @apply w-1/2
+  }
 }

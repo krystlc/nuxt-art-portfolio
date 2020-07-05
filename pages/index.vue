@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="Home">
     <section class="hero">
       <div class="container">
         <h3 class="title">{{ description }}</h3>
@@ -8,70 +8,69 @@
       </div>
     </section>
     <section class="container gallery">
-      <ul class="tabs space-x-5">
-        <li
-          v-for="cat in categories"
-          :key="cat"
-          class="tabs__item"
-          :class="{ active: tab === cat }"
-          @click.prevent="tab = cat"
-        >{{ cat }}</li>
-      </ul>
       <div class="gallery__items">
-        <div v-for="n in 9" :key="n" class="gallery__item" />
+        <nuxt-link
+          v-for="(item, i) in gallery"
+          :key="`item-${i}`"
+          class="gallery__item"
+          :to="item.slug"
+        >
+          <img :src="`${item.image}?fm=webp&h=640&w=640&fit=fill`" :title="item.title" />
+        </nuxt-link>
       </div>
       <div class="gallery__action">
-        <nuxt-link to="/gallery" class="btn">View more</nuxt-link>
+        <nuxt-link to="/portfolio" class="btn btn-secondary">View Portfolio</nuxt-link>
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import EntryMixin from '~/mixins/entryMixin'
+import pageMixin from '~/mixins/pageMixin'
 
-export default EntryMixin.extend({
+export default pageMixin.extend({
   name: 'PageIndex',
-  data() {
-    return {
-      tab: 'Acrylic',
-      categories: ['Acrylic', 'Pencil', 'Oil'],
-    }
-  },
   asyncData() {
     const entry = require('~/static/data/page.json').find(
       (e: any) => e.fields.slug === 'home'
     )
-    return { entry }
+    const collections = require('~/static/data/collection.json')
+    return { entry, collections }
+  },
+  computed: {
+    gallery(): any[] {
+      return (this as any).collections.reduce((arr: any[], collection: any) => {
+        const items = collection.fields.items.map((item: any) => ({
+          image: item.fields.image.fields.file.url,
+          title: item.fields.title,
+          slug: `/portfolio/${
+            collection.fields.slug
+          }#${item.fields.title.replace(/ /g, '')}`,
+        }))
+        arr = [...arr, ...items]
+        return arr
+      }, [])
+    },
   },
 })
 </script>
 
 <style scoped>
 .gallery {
-  @apply py-20;
+  @apply pt-8;
 }
 .gallery__items {
   @apply grid grid-cols-1 gap-4;
-}
-.tabs {
-  @apply flex justify-center mb-10;
-}
-.tabs__item {
-  @apply cursor-pointer;
-}
-.tabs__item.active {
-  @apply border-b-2 border-dark-lava;
-}
-@screen sm {
-  .gallery__items {
-    @apply grid-cols-3;
-  }
 }
 .gallery__item {
   @apply h-64 bg-gray-100;
 }
 .gallery__action {
-  @apply text-center mt-10;
+  @apply text-center mt-24;
+}
+@screen sm {
+  .gallery__items {
+    @apply grid-cols-3;
+  }
 }
 </style>

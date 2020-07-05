@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="About">
     <section class="hero">
       <div class="container">
         <h3 class="title">About</h3>
@@ -13,7 +13,7 @@
         <h4 v-if="description" class="headline">{{ description }}</h4>
         <div v-html="body" />
         <button class="btn mt-4">Hire me</button>
-        <nuxt-link to="/gallery" class="btn btn-secondary">View Gallery</nuxt-link>
+        <nuxt-link to="/portfolio" class="btn btn-secondary">View Portfolio</nuxt-link>
       </div>
     </section>
     <section
@@ -34,9 +34,9 @@
 </template>
 
 <script lang="ts">
-import EntryMixin from '~/mixins/entryMixin'
+import pageMixin from '~/mixins/pageMixin'
 
-export default EntryMixin.extend({
+export default pageMixin.extend({
   name: 'PageAbout',
   asyncData() {
     const entry = require('~/static/data/page.json').find(

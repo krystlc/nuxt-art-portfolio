@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div id="Contact">
     <section class="hero">
       <div class="container">
         <h3 class="title">Contact</h3>
-        <p>Let's talk!</p>
+        <p>Let's connect!</p>
       </div>
     </section>
     <section class="container">

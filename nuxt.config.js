@@ -72,16 +72,13 @@ export default {
     subFolders: false,
     fallback: true,
     routes: () => {
-      const pages = require('./static/data/page.json')
-        .filter((page) => page.fields.simple === true)
-        .map((page) => `${page.fields.slug}`)
-      // const communities = require('./static/data/community.json').map(
-      //   community => `/communities/${community.fields.slug}`
-      // )
-      // const posts = require('./static/data/blogPost.json').map(
-      //   (post) => `/blog/${post.fields.slug}`
-      // )
-      return [...pages]
+      const pages = require('./static/data/page.json').map(
+        (page) => `${page.fields.slug}`
+      )
+      const collections = require('./static/data/collection.json').map(
+        (collection) => `/communities/${collection.fields.slug}`
+      )
+      return [...pages, ...collections]
     },
   },
   'google-gtag': {
