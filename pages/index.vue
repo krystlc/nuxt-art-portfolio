@@ -17,7 +17,8 @@
           :to="item.slug"
         >
           <picture>
-            <source :srcset="`${item.image}?h=640&w=640&fit=thumb&fm=webp&q=80`" />
+            <source :srcset="`${item.image}?h=640&w=640&fit=thumb&fm=webp&q=80`" type="image/webp" />
+            <source :srcset="`${item.image}?h=640&w=640&fit=thumb&fm=jpg&q=90`" type="image/jpeg" />
             <img
               :src="`${item.image}?h=640&w=640&fit=thumb&fm=jpg&q=90`"
               :alt="item.title"
@@ -62,7 +63,7 @@ export default pageMixin.extend({
       }, [])
     },
     heroBg() {
-      return { backgroundImage: `url('${this.cover}?fm=webp&w=1280')` }
+      return { backgroundImage: `url('${this.cover}?fm=jpg&w=1280&q=80')` }
     },
   },
 })
