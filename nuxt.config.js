@@ -72,11 +72,11 @@ export default {
     subFolders: false,
     fallback: true,
     routes: () => {
-      const pages = require('./static/data/page.json').map(
-        (page) => `${page.fields.slug}`
-      )
+      const pages = require('./static/data/page.json')
+        .map((page) => `${page.fields.slug}`)
+        .filter((page) => page !== 'home')
       const collections = require('./static/data/collection.json').map(
-        (collection) => `/communities/${collection.fields.slug}`
+        (collection) => `/portfolio/${collection.fields.slug}`
       )
       return [...pages, ...collections]
     },
