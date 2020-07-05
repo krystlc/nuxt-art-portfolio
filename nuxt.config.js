@@ -18,6 +18,16 @@ export default {
         name: 'description',
         content: process.env.npm_package_description || '',
       },
+      {
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: 'Loren Valle',
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title',
+        content: 'Loren Valle',
+      },
     ],
     script: [
       {
