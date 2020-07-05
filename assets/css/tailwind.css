@@ -66,6 +66,16 @@ textarea:focus {
 .hero .container {
   @apply flex flex-col items-center text-center;
 }
+.hero .title {
+  @apply relative;
+}
+.hero .title::before {
+  content: '';
+  left: 50%;
+  width: 40px;
+  margin-left: -20px;
+  @apply absolute bottom-0 border-b-2 border-middle-grey opacity-50;
+}
 .hero .subtitle:is(:last-child) {
   @apply mt-3;
 }

@@ -65,6 +65,9 @@ export default pageMixin.extend({
 .hero {
   @apply relative overflow-hidden;
 }
+.hero .title::before {
+  content: none;
+}
 .hero .container {
   @apply items-start text-left relative z-10;
 }
