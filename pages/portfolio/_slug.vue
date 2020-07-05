@@ -13,7 +13,11 @@
       </div>
       <div class="collection__items">
         <figure v-for="item in items" :id="item.id" :key="item.id" class="collection__item">
-          <img :src="`${item.image}?fm=webp&w=960`" />
+          <picture>
+            <source :srcset="`${item.image}?fm=webp&w=960&q=80`" type="image/webp" />
+            <source :srcset="`${item.image}?fm=jpg&w=960&q=90`" type="image/jpeg" />
+            <img :src="`${item.image}?fm=jpg&w=960&q=90`" :alt="item.title" :title="item.title" />
+          </picture>
           <figcaption>
             <strong>{{ item.title }}.</strong>
             <span>{{ item.tags }}.</span>

@@ -7,7 +7,11 @@
     </section>
     <section class="profile container">
       <aside class="profile__picture">
-        <img :src="`${cover}?fm=webp&h=960`" />
+        <picture>
+          <source :srcset="`${cover}?fm=webp&h=960&q=80`" type="image/webp" />
+          <source :srcset="`${cover}?fm=jpg&h=960&q=90`" type="image/jpeg" />
+          <img :src="`${cover}?fm=jpg&h=960&q=90`" />
+        </picture>
       </aside>
       <div class="profile__bio">
         <h4 v-if="description" class="headline">{{ description }}</h4>
@@ -23,7 +27,11 @@
       :class="{ 'segment-inverse': i % 2 }"
     >
       <div class="segment__cover">
-        <img :src="`${block.cover}?fm=webp&h=960&w=960&fit=fill`" />
+        <picture>
+          <source :srcset="`${block.cover}?fm=webp&h=960&w=960&fit=fill&q=80`" type="image/webp" />
+          <source :srcset="`${block.cover}?fm=jpg&h=960&w=960&fit=fill&q=90`" type="image/jpeg" />
+          <img :src="`${block.cover}?fm=jpg&h=960&w=960&fit=fill&q=90`" :alt="block.headline" />
+        </picture>
       </div>
       <div class="segment__copy">
         <h4 class="headline">{{ block.headline }}</h4>

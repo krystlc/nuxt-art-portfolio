@@ -13,7 +13,21 @@
           :to="`/portfolio/${collection.slug}`"
           class="gallery__item"
         >
-          <img :src="`${collection.cover}?fm=webp&h=640&w=640&fit=fill`" :title="collection.title" />
+          <picture>
+            <source
+              :srcset="`${collection.cover}?fm=webp&h=640&w=640&fit=thumb&q=80`"
+              type="image/webp"
+            />
+            <source
+              :srcset="`${collection.cover}?fm=jpg&h=640&w=640&fit=thumb&q=90`"
+              type="image/jpeg"
+            />
+            <img
+              :src="`${collection.cover}?fm=jpg&h=640&w=640&fit=thumb&q=90`"
+              :alt="collection.title"
+              :title="collection.title"
+            />
+          </picture>
           <h4 v-text="collection.title" />
         </nuxt-link>
       </div>
