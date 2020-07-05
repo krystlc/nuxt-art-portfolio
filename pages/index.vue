@@ -6,6 +6,7 @@
         <div class="subtitle" v-html="body" />
         <nuxt-link to="/about" class="btn">About</nuxt-link>
       </div>
+      <div class="hero-bg" :style="heroBg" />
     </section>
     <section class="container gallery">
       <div class="gallery__items">
@@ -53,13 +54,22 @@ export default pageMixin.extend({
         return arr
       }, [])
     },
+    heroBg() {
+      return { backgroundImage: `url('${this.cover}?fm=webp&w=1280')` }
+    },
   },
 })
 </script>
 
 <style scoped>
+.hero {
+  @apply relative overflow-hidden;
+}
 .hero .container {
-  @apply items-start text-left;
+  @apply items-start text-left relative z-10;
+}
+.hero-bg {
+  @apply absolute top-0 bottom-0 left-0 right-0 opacity-25 bg-cover bg-center;
 }
 .gallery__action {
   @apply text-center pt-8;

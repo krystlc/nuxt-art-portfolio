@@ -51,7 +51,6 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
-    'nuxt-purgecss',
     '~/modules/getContent',
   ],
   /*
@@ -59,6 +58,7 @@ export default {
    */
   modules: [
     '@nuxtjs/pwa',
+    'nuxt-purgecss',
     // Doc: https://www.npmjs.com/package/@nuxtjs/google-gtag
     '@nuxtjs/google-gtag',
   ],

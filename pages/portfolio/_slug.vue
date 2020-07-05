@@ -8,13 +8,17 @@
     </section>
     <section class="container collection">
       <div class="collection__details">
-        <p class="tags" v-text="tags" />
+        <p>Released: {{ entry.fields.released | date }}</p>
         <div v-html="body" />
       </div>
       <div class="collection__items">
         <figure v-for="item in items" :id="item.id" :key="item.id" class="collection__item">
           <img :src="`${item.image}?fm=webp&w=960`" />
-          <figcaption v-text="item.caption" />
+          <figcaption>
+            <strong>{{ item.title }}.</strong>
+            <span>{{ item.tags }}.</span>
+            <span>{{ item.description }}</span>
+          </figcaption>
         </figure>
       </div>
     </section>
@@ -22,6 +26,7 @@
 </template>
 
 <script lang="ts">
+import dayjs from 'dayjs'
 import EntryMixin from '~/mixins/entryMixin'
 
 export default EntryMixin.extend({
@@ -32,23 +37,50 @@ export default EntryMixin.extend({
     )
     return { entry }
   },
-  computed: {
-    tags(): string {
-      return (this as any).entry.fields.items
-        .reduce((arr: any[], item: any) => {
-          return new Array(...arr, ...item.fields.tags)
-        }, [])
-        .join(', ')
+  filters: {
+    date(val: string) {
+      return val ? dayjs(val).format('MMMM D, YYYY') : 'Ongoing'
     },
+  },
+  computed: {
     items(): any[] {
       return (this as any).entry.fields.items.map((item: any) => {
         return {
           id: item.fields.title.replace(/ /g, ''),
-          caption: `${item.fields.title}: ${item.fields.description}`,
+          title: item.fields.title,
+          description: item.fields.description,
+          tags: item.fields.tags.join(', '),
           image: item.fields.image.fields.file.url,
         }
       })
     },
+  },
+  head() {
+    return {
+      title: (this as any).title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: (this as any).description,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: (this as any).description,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: (this as any).title,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `https:${(this as any).items[0].image}`,
+        },
+      ],
+    }
   },
 })
 </script>
