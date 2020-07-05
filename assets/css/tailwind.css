@@ -20,6 +20,10 @@ a:focus,
 button:focus {
   @apply outline-none;
 }
+a:disabled,
+button:disabled {
+  @apply opacity-50;
+}
 
 label {
   @apply block uppercase tracking-wide text-xs font-bold mb-2;

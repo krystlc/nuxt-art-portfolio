@@ -47,7 +47,7 @@ export default Vue.extend({
     },
   },
   head: {
-    title: 'Collections',
+    title: 'Portfolio',
   },
 })
 </script>

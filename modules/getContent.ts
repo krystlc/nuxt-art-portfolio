@@ -24,6 +24,11 @@ const getContent: Module = function () {
         include: 3,
       })
       if (entries.total > 0) {
+        fs.promises
+          .mkdir(path.join(__dirname, '..', 'static/data'), { recursive: true })
+          .catch((err) => {
+            console.log('caught exemption: ', err.message)
+          })
         fs.writeFileSync(
           path.join(__dirname, '..', 'static/data', `${type}.json`),
           JSON.stringify(entries.items)

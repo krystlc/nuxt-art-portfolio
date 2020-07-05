@@ -12,7 +12,7 @@
       <div class="profile__bio">
         <h4 v-if="description" class="headline">{{ description }}</h4>
         <div v-html="body" />
-        <button class="btn mt-4">Hire me</button>
+        <button class="btn mt-4" disabled>Hire me</button>
         <nuxt-link to="/portfolio" class="btn btn-secondary">View Portfolio</nuxt-link>
       </div>
     </section>

@@ -1,1 +1,0 @@
-Placeholder file to create this folder for JSON content.
