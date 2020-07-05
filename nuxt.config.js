@@ -89,7 +89,7 @@ export default {
       anonymize_ip: true, // anonymize IP
       send_page_view: false, // might be necessary to avoid duplicated page track on page reload
       linker: {
-        domains: ['lorenvalleart.com.com'],
+        domains: ['lorenvalleart.com'],
       },
     },
     disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...)
