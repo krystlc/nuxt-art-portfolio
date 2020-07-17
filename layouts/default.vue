@@ -32,8 +32,8 @@ export default Vue.extend({
     items(): MenuItem[] {
       return [
         new MenuItem('Home', 'index'),
-        new MenuItem('About', 'about'),
         new MenuItem('Portfolio', 'portfolio'),
+        new MenuItem('About', 'about'),
         new MenuItem('Contact', 'contact'),
       ]
     },

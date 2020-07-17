@@ -92,6 +92,9 @@ textarea:focus {
 .gallery__item h4 {
   @apply pt-2 underline text-center;
 }
+.gallery__item {
+  @apply rounded-sm overflow-hidden;
+}
 
 @screen sm {
 
@@ -108,11 +111,18 @@ textarea:focus {
   .gallery__item {
     @apply relative;
   }
+  .gallery__item img {
+    @apply transition duration-100;
+  }
+  .gallery__item:hover img {
+    @apply transform scale-105 opacity-25;
+  }
   .gallery__item h4 {
-    @apply transition duration-100 transform -translate-y-2 opacity-0 absolute left-0 right-0;
+    top: 50%;
+    @apply transition duration-100 pt-0 opacity-0 transform -translate-y-2 absolute text-center right-0 left-0;
   }
   .gallery__item:hover h4 {
-    @apply opacity-100 translate-y-0;
+    @apply opacity-100 -translate-y-1/2;
   }
 
 }

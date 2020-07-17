@@ -51,13 +51,15 @@ export default pageMixin.extend({
   computed: {
     gallery(): any[] {
       return (this as any).collections.reduce((arr: any[], collection: any) => {
-        const items = collection.fields.items.map((item: any) => ({
-          image: item.fields.image.fields.file.url,
-          title: item.fields.title,
-          slug: `/portfolio/${
-            collection.fields.slug
-          }#${item.fields.title.replace(/ /g, '')}`,
-        }))
+        const items = collection.fields.items
+          .filter((item: any) => item.fields.featured)
+          .map((item: any) => ({
+            image: item.fields.image.fields.file.url,
+            title: item.fields.title,
+            slug: `/portfolio/${
+              collection.fields.slug
+            }#${item.fields.title.replace(/ /g, '')}`,
+          }))
         arr = [...arr, ...items]
         return arr
       }, [])

@@ -16,7 +16,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: "Loren Valle's Art portfolio",
       },
       {
         hid: 'og:site_name',
