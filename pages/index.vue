@@ -39,6 +39,12 @@
 <script lang="ts">
 import pageMixin from '~/mixins/pageMixin'
 
+function compareDates(a: any, b: any) {
+  const dateA = a.date
+  const dateB = b.date
+  return new Date(dateB).getTime() - new Date(dateA).getTime()
+}
+
 export default pageMixin.extend({
   name: 'PageIndex',
   asyncData() {
@@ -50,19 +56,22 @@ export default pageMixin.extend({
   },
   computed: {
     gallery(): any[] {
-      return (this as any).collections.reduce((arr: any[], collection: any) => {
-        const items = collection.fields.items
-          .filter((item: any) => item.fields.featured)
-          .map((item: any) => ({
-            image: item.fields.image.fields.file.url,
-            title: item.fields.title,
-            slug: `/portfolio/${
-              collection.fields.slug
-            }#${item.fields.title.replace(/ /g, '')}`,
-          }))
-        arr = [...arr, ...items]
-        return arr
-      }, [])
+      return (this as any).collections
+        .reduce((arr: any[], collection: any) => {
+          const items = collection.fields.items
+            .filter((item: any) => item.fields.featured)
+            .map((item: any) => ({
+              date: item.sys.updatedAt,
+              image: item.fields.image.fields.file.url,
+              title: item.fields.title,
+              slug: `/portfolio/${
+                collection.fields.slug
+              }#${item.fields.title.replace(/ /g, '')}`,
+            }))
+          arr = [...arr, ...items]
+          return arr
+        }, [])
+        .sort(compareDates)
     },
     heroBg() {
       return { backgroundImage: `url('${this.cover}?fm=jpg&w=1280&q=80')` }

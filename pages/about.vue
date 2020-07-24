@@ -15,8 +15,8 @@
       </aside>
       <div class="profile__bio">
         <h4 v-if="description" class="headline">{{ description }}</h4>
-        <div v-html="body" />
-        <button class="btn mt-4" disabled>Hire me</button>
+        <div class="mb-8" v-html="body" />
+        <nuxt-link to="/contact" class="btn">Contact me</nuxt-link>
         <nuxt-link to="/portfolio" class="btn btn-secondary">View Portfolio</nuxt-link>
       </div>
     </section>
