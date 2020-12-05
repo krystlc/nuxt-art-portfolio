@@ -1,3 +1,5 @@
+const defaultDescription = "Loren Valle's Art portfolio"
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -16,12 +18,17 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: "Loren Valle's Art portfolio",
+        content: defaultDescription,
       },
       {
         hid: 'og:site_name',
         name: 'og:site_name',
         content: 'Loren Valle',
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: defaultDescription,
       },
       {
         hid: 'apple-mobile-web-app-title',
@@ -89,7 +96,10 @@ export default {
       const collections = require('./static/data/collection.json').map(
         (collection) => `/portfolio/${collection.fields.slug}`
       )
-      return [...pages, ...collections]
+      const landingPages = require('./static/data/landingPage.json').map(
+        (landingPage) => `/landing/${landingPage.fields.slug}`
+      )
+      return [...pages, ...collections, ...landingPages]
     },
   },
   'google-gtag': {
