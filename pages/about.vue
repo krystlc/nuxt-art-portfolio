@@ -17,7 +17,9 @@
         <h4 v-if="description" class="headline">{{ description }}</h4>
         <div class="mb-8" v-html="body" />
         <nuxt-link to="/contact" class="btn">Contact me</nuxt-link>
-        <nuxt-link to="/portfolio" class="btn btn-secondary">View Portfolio</nuxt-link>
+        <nuxt-link to="/portfolio" class="btn btn-secondary"
+          >View Portfolio</nuxt-link
+        >
       </div>
     </section>
     <section
@@ -28,9 +30,18 @@
     >
       <div class="segment__cover">
         <picture>
-          <source :srcset="`${block.cover}?fm=webp&h=960&w=960&fit=fill&q=80`" type="image/webp" />
-          <source :srcset="`${block.cover}?fm=jpg&h=960&w=960&fit=fill&q=90`" type="image/jpeg" />
-          <img :src="`${block.cover}?fm=jpg&h=960&w=960&fit=fill&q=90`" :alt="block.headline" />
+          <source
+            :srcset="`${block.cover}?fm=webp&h=960&w=960&fit=fill&q=80`"
+            type="image/webp"
+          />
+          <source
+            :srcset="`${block.cover}?fm=jpg&h=960&w=960&fit=fill&q=90`"
+            type="image/jpeg"
+          />
+          <img
+            :src="`${block.cover}?fm=jpg&h=960&w=960&fit=fill&q=90`"
+            :alt="block.headline"
+          />
         </picture>
       </div>
       <div class="segment__copy">
