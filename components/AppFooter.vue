@@ -16,7 +16,18 @@
     <nav>
       <ul class="space-x-5">
         <li v-for="item in items" :key="item.route">
-          <nuxt-link :to="{ name: item.route }" exact v-text="item.label" />
+          <a
+            v-if="item.external"
+            :href="item.route"
+            target="_blank"
+            v-text="item.label"
+          />
+          <nuxt-link
+            v-else
+            :to="{ name: item.route }"
+            exact
+            v-text="item.label"
+          />
         </li>
       </ul>
     </nav>
