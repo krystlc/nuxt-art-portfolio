@@ -77,6 +77,9 @@ export default pageMixin.extend({
 .profile__picture {
   @apply mb-4;
 }
+.profile__bio .btn {
+  @apply inline-block;
+}
 .segment {
   @apply bg-pale-silver text-dark-lava;
 }
