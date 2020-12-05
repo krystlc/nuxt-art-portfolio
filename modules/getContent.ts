@@ -13,7 +13,7 @@ const config = {
 const client = createClient(config)
 
 const getContent: Module = function () {
-  const types: string[] = ['page', 'collection']
+  const types: string[] = ['page', 'landingPage', 'collection']
   this.nuxt.hook('generate:before', async () => {
     // This will be called before Nuxt generates your pages
     console.log('> Starting import...')
