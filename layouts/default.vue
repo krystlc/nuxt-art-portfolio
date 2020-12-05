@@ -20,6 +20,10 @@ class MenuItem {
     this.label = label
     this.route = route
   }
+
+  get external(): boolean {
+    return this.route.includes('http')
+  }
 }
 
 export default Vue.extend({
@@ -34,6 +38,7 @@ export default Vue.extend({
         new MenuItem('Home', 'index'),
         new MenuItem('Portfolio', 'portfolio'),
         new MenuItem('About', 'about'),
+        new MenuItem('Shop', 'https://www.etsy.com/shop/lorenvalleart'),
         new MenuItem('Contact', 'contact'),
       ]
     },
