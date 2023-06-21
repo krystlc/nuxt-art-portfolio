@@ -27,7 +27,7 @@
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "dayjs": "^1.8.29",
-    "nuxt": "^2.13.0"
+    "nuxt": "^3.4.3"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",
